@@ -6,7 +6,6 @@ class SinglyLinkedListNode {
     public:
         int data;
         SinglyLinkedListNode *next;
-
         SinglyLinkedListNode(int node_data) {
             this->data = node_data;
             this->next = nullptr;
@@ -44,21 +43,19 @@ class SinglyLinkedList {
 
 };
 
-// Complete the SinglyLinkedListNode* findMergeNode(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) function below.
-/*
-	 * For your reference:
-	 *
-	 * SinglyLinkedListNode {
-	 *     int data;
-	 *     SinglyLinkedListNode* next;
-	 * };
-	 * SinglyLinkedList {
-     *    SinglyLinkedListNode *head;
-     *    SinglyLinkedListNode *tail;
-	 *
-	 */
 SinglyLinkedListNode* findMergeNode(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
-//###INSERT CODE HERE -
+  if (head1 == nullptr || head2 == nullptr){
+    return nullptr;
+  }
+  else{
+    SinglyLinkedListNode *tmp1 = head1;
+    SinglyLinkedListNode *tmp2 = head2;
+     while(tmp1 != tmp2){
+      tmp1 = (tmp1 == nullptr) ? head2 : tmp1->next;
+      tmp2 = (tmp2 == nullptr) ? head1 : tmp2->next;
+     }
+     return tmp1;
+  }
 }
 
 void free_singly_linked_list(SinglyLinkedListNode* node) {
@@ -68,8 +65,6 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
         free(temp);
     }
 }
-
-
 
 int main()
 {
@@ -126,3 +121,7 @@ int main()
 
     return 0;
 }
+
+
+
+
