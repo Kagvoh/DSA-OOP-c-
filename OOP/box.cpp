@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include <ostream>
 
 using namespace std;
@@ -55,16 +55,19 @@ public:
     else
       return 0;
   }
-  // friend ostream &operator<<(std::ostream &out, Box &box)
-  // {
-  //   out << box.length;
-  //   out << box.breadth;
-  //   out << box.height;
-  //   return out;
-  // }
+  friend ostream &operator<<(std::ostream &out, Box &box)
+  {
+    out << box.length;
+    out << box.breadth;
+    out << box.height;
+    return out;
+  }
 };
-  ostream &operator<<(ostream&out, Box &box){
-    out << box.getlength() << " " << box.getBreadth() << " " << box.getHeight();
+  ostream &operator<<(std::ostream &out, Box &box)
+  {
+    out << box.getlength();
+    out << box.getBreadth();
+    out << box.getHeight();
     return out;
   }
 
